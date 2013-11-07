@@ -1,12 +1,6 @@
                                  vim-sunflower
                                  =============
 
-      _/_/_/  _/    _/  _/      _/  _/_/_/_/  _/          _/_/    _/          _/  _/_/_/_/  _/_/_/
-   _/        _/    _/  _/_/    _/  _/        _/        _/    _/  _/          _/  _/        _/    _/
-    _/_/    _/    _/  _/  _/  _/  _/_/_/    _/        _/    _/  _/    _/    _/  _/_/_/    _/_/_/
-       _/  _/    _/  _/    _/_/  _/        _/        _/    _/    _/  _/  _/    _/        _/    _/
-_/_/_/      _/_/    _/      _/  _/        _/_/_/_/    _/_/        _/  _/      _/_/_/_/  _/    _/
-
                                     Synopsis
                                     ````````
 
@@ -79,4 +73,3 @@ This programme is released under the Two Clause BSD License. The text of
 license is available in the LICENSE file, which should be available in
 the root folder of this package.
 
- :vim:nowrap:
