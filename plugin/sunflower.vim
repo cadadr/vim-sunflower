@@ -52,41 +52,29 @@ from datetime import datetime
 
 class Helianthus(object):
     def __init__(self):
-        self.rising_today = None
-        self.setting_today = None
-
-        self.today = datetime.today()
-        self.now = datetime.now()
-        self.observer = ephem.Observer()
-
-        self.observer.lat   = str(vim.vars['sunflower_lat'])
-        self.observer.long  = str(vim.vars['sunflower_lat'])
-        self.set_background = bool(vim.vars['sunflower_set_background'])
-
-        self.__update()
+        self._update()
 
     def _update(self):
         'Update variables with new values.'
         # The user might have changed these in the session, so update them.
-        self.observer.lat   = str(vim.vars['sunflower_lat'])
-        self.observer.long  = str(vim.vars['sunflower_lat'])
+        observer = ephem.Observer()
+
+        observer.lat   = str(vim.vars['sunflower_lat'])
+        observer.long  = str(vim.vars['sunflower_lat'])
         self.set_background = bool(vim.vars['sunflower_set_background'])
 
-        # Do not be eager to compute the position of the Sun every call.
-        self.now = datetime.today()
-        if self.now.day != self.today.day:
-            self.__update()
+        self.now = datetime.now()
+        today = datetime.today()
 
-    def __update(self):
-        next_rise     = ephem.localtime(self.observer.next_rising(ephem.Sun()))
-        next_set      = ephem.localtime(self.observer.next_setting(ephem.Sun()))
-        previous_rise = ephem.localtime(self.observer.previous_rising(ephem.Sun()))
-        previous_set  = ephem.localtime(self.observer.previous_setting(ephem.Sun()))
+        next_rise     = ephem.localtime(observer.next_rising(ephem.Sun()))
+        next_set      = ephem.localtime(observer.next_setting(ephem.Sun()))
+        previous_rise = ephem.localtime(observer.previous_rising(ephem.Sun()))
+        previous_set  = ephem.localtime(observer.previous_setting(ephem.Sun()))
 
         # If the next rising of sun is past today, we have already seen a sunrise
         # today; otherwise we are yet to do so.
-        self.rising_today = previous_rise if next_rise > self.today else next_rise
-        self.setting_today = next_set if next_set.day == self.today.day else previous_set
+        self.rising_today  = previous_rise if next_rise > today else next_rise
+        self.setting_today = next_set if next_set.day == today.day else previous_set
 
     def day(self):
         return self.rising_today < self.now < self.setting_today
