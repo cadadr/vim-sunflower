@@ -31,12 +31,37 @@ and it is done at the first place.
                                   Installation
                                   ````````````
 
-Installation notes here.
+Sunflower depends of PyEphem for sunset and sunrise computations. You
+can use the `requirements.txt' file at the project root with `pip'
+utility to install anything sunflower depends:
+
+    % pip install -r requirements.txt
+
+or you can install the library yourself:
+
+    % pip install pyephem
+
+Please note that you may need to run these commands with superuser
+privileges.
+
+This plugin depends on python scripting feature of Vim. If your build
+of vim does not support python scripting, you will need to build vim
+from source and enable python support. You will need to have Python
+development libraries and headers installed before doing so.
 
                                  Configuration
                                  `````````````
 
-Configuration notes here.
+There are some variables you can use to configure the behaviour of
+sunflower. Below is an example configuration, set up for Istanbul. You
+will need to find longtitude and latitude values for your city. More
+elaborate details on these variables and configuring sunflower can be
+found via `:help sunflower-config'.
+
+    let g:sunflower_lat=41
+    let g:sunflower_long=28
+    let g:sunflower_colorscheme_day='solarized'
+    let g:sunflower_colorscheme_night='solarized'
 
                                     License
                                     ```````
@@ -44,3 +69,4 @@ Configuration notes here.
 This programme is released under the Two Clause BSD License. The text of
 license is available in the LICENSE file, which should be available in
 the root folder of this package.
+
