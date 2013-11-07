@@ -83,6 +83,7 @@ endfunction
 
 
 function! __SunflowerFindTheSun()
+    python <<EOF
 if not change():
     update()
     change()
