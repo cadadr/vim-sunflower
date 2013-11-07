@@ -16,9 +16,10 @@ INSTALLATION                                                *sunflower-install*
 If you haven't installed the plugin files yet, please see the README for
 instructions on the subject.
 
-You will need python scripting support and the PyEphem library in order to
-use this plugin.  See the README file that comes with the plugin package for
-instructions on how to get these done.
+You will need python scripting support and the PyEphem library in order
+to use this plugin. Also, auto-commands should be available. See the
+README file that comes with the plugin package for instructions on how
+to get these done.
 
 By default, |sunflower| will install an autocommand to change the theme when
 needed.  See |g:sunflower_install_autocommand| to learn how to modify this
@@ -61,7 +62,7 @@ The name of the colorscheme to use for day.  Defaults to "default".
 
 The name of the colorscheme to use for night.  Defaults to "default".
 
-                                                         *sunflower#FindTheSun*
+                                                          *SunflowerFindTheSun*
 
 This function decides which colorscheme to use depending on the time of day.
 It also sets the 'background' option aptly.

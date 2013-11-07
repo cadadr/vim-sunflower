@@ -49,6 +49,9 @@ of vim does not support python scripting, you will need to build vim
 from source and enable python support. You will need to have Python
 development libraries and headers installed before doing so.
 
+Also, autocommands should be available. You can see elaborate details on
+what features are available or not via the `:version' command in vim.
+
                                  Configuration
                                  `````````````
 
