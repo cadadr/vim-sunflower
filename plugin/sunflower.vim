@@ -76,7 +76,7 @@ def change():
 EOF
 
 
-function! sunflower#FindTheSun()
+function! FindTheSun()
 python <<EOF
 if not change():
     update()
@@ -84,5 +84,5 @@ if not change():
 EOF
 endfunction
 
-call sunflower#FindTheSun()
+call FindTheSun()
 
