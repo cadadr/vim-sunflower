@@ -84,3 +84,5 @@ if not change():
 EOF
 endfunction
 
+call sunflower#FindTheSun()
+
