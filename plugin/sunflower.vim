@@ -2,7 +2,7 @@
 " File: sunflower.vim
 " Description: Adjust colorscheme depending on whether it is night or day.
 " Maintainer: Göktuğ Kayaalp <self@gkayaalp.com>
-" Version: 0.1.0
+" Version: 0.1.1
 " License: BSD2 <../LICENSE>
 "==============================================================================
 

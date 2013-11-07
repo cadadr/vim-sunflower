@@ -1,7 +1,15 @@
-sunflower.txt         For Vim version 7+         Last change: @@LASTCHANGE@@
+sunflower.txt         For Vim version 7+         Last change: 2013-11-07
 
 Author: Göktuğ Kayaalp <self@gkayaalp.com>
 License: see |sunflower-license|
+>
+
+       _/_/_/  _/    _/  _/      _/  _/_/_/_/  _/          _/_/    _/          _/  _/_/_/_/  _/_/_/
+    _/        _/    _/  _/_/    _/  _/        _/        _/    _/  _/          _/  _/        _/    _/
+     _/_/    _/    _/  _/  _/  _/  _/_/_/    _/        _/    _/  _/    _/    _/  _/_/_/    _/_/_/
+        _/  _/    _/  _/    _/_/  _/        _/        _/    _/    _/  _/  _/    _/        _/    _/
+ _/_/_/      _/_/    _/      _/  _/        _/_/_/_/    _/_/        _/  _/      _/_/_/_/  _/    _/
+<
 
 Depends on 'python'
 
@@ -107,4 +115,4 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
- vim:ft=help:tw=78
+ vim:ft=help:tw=78:nowrap:
