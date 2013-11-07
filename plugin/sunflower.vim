@@ -6,8 +6,16 @@
 " License: BSD2 <../LICENSE>
 "==============================================================================
 
-if !exists('g:sunflower_lat') || !exists('g:sunflower_long') || !has('python')
+if !has('python') || !has('autocmd')
     finish
+endif
+
+if !exists('g:sunflower_lat')
+    let g:sunflower_lat=0
+endif
+
+if !exists('g:sunflower_long')
+    let g:sunflower_long=0
 endif
 
 if !exists('g:sunflower_colorscheme_night')
@@ -26,11 +34,9 @@ if !exists('g:sunflower_install_autocommand')
     let g:sunflower_install_autocommand=1
 endif
 
-let g:__sunflower_has_autocmd=0
-if has('autocmd')
-    let g:__sunflower_has_autocmd=1
-endif
+let g:__sunflower_initialised=0
 
+function! SunflowerInit()
 python <<EOF
 import vim
 import ephem
@@ -52,9 +58,8 @@ def update():
     next_set = ephem.localtime(observer.next_setting(ephem.Sun()))
     previous_rise = ephem.localtime(observer.previous_rising(ephem.Sun()))
     previous_set = ephem.localtime(observer.previous_setting(ephem.Sun()))
-    if (not autocommand_installed) and bool(vim.vars['sunflower_install_autocommand'])\
-        and bool(vim.vars['__sunflower_has_autocmd']):
-        vim.command('au CursorHold,BufWritePost,VimEnter * call FindTheSun()')
+    if (not autocommand_installed) and bool(vim.vars['sunflower_install_autocommand']):
+        vim.command('au CursorHold,BufWritePost,VimEnter * call SunflowerFindTheSun()')
 
 update()
 
@@ -74,15 +79,21 @@ def change():
     return False
 
 EOF
+endfunction
 
 
-function! FindTheSun()
-python <<EOF
+function! __SunflowerFindTheSun()
 if not change():
     update()
     change()
 EOF
 endfunction
 
-call FindTheSun()
+function! SunflowerFindTheSun()
+    if g:__sunflower_initialised != 1
+        call SunflowerInit()
+        let g:__sunflower_initialised=1
+    endif
+    call __SunflowerFindTheSun()
+endfunction
 
