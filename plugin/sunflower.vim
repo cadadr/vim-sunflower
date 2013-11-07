@@ -54,7 +54,7 @@ def update():
     previous_set = ephem.localtime(observer.previous_setting(ephem.Sun()))
     if (not autocommand_installed) and bool(vim.vars['sunflower_install_autocommand'])\
         and bool(vim.vars['__sunflower_has_autocmd']):
-        vim.command('au CursorHold,BufWritePost,VimEnter * call sunflower#FindTheSun()')
+        vim.command('au CursorHold,BufWritePost,VimEnter * call FindTheSun()')
 
 update()
 
