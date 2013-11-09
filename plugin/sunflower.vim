@@ -73,7 +73,7 @@ class Helianthus(object):
 
         # If the next rising of sun is past today, we have already seen a sunrise
         # today; otherwise we are yet to do so.
-        self.rising_today  = previous_rise if next_rise > today else next_rise
+        self.rising_today  = previous_rise if next_rise.hour and next_rise.day > today.day else next_rise
         self.setting_today = next_set if next_set.day == today.day else previous_set
 
     def day(self):
